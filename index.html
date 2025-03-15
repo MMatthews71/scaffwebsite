@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dandenong Scaffolding Co.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #003087;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #003087;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003087;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dandenong Scaffolding Co.</h1>
+        <p>Reliable scaffolding solutions in Melbourne</p>
+    </header>
+
+    <div class="container">
+        <h2>Check Our Service Area</h2>
+        <p>Enter your postcode below to see if we can assist you. We operate out of Dandenong and cover nearby suburbs.</p>
+        
+        <div class="form-group">
+            <input type="text" id="postcode" placeholder="Enter your postcode (e.g., 3175)">
+            <button onclick="checkPostcode()">Check</button>
+        </div>
+        
+        <div id="result"></div>
+
+        <h2>About Us</h2>
+        <p>Based in Dandenong, we provide top-quality scaffolding services for residential, commercial, and industrial projects. Contact us for a quote!</p>
+        
+        <h2>Contact</h2>
+        <p>Phone: 0400 123 456 | Email: info@dandenongscaffolding.com.au</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dandenong Scaffolding Co. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const serviceAreaPostcodes = ["3175", "3174", "3173", "3177", "3171", "3172"];
+
+        function checkPostcode() {
+            const postcode = document.getElementById("postcode").value.trim();
+            const resultDiv = document.getElementById("result");
+
+            if (postcode.length !== 4 || isNaN(postcode)) {
+                resultDiv.innerHTML = "Please enter a valid 4-digit postcode.";
+                resultDiv.style.color = "red";
+                return;
+            }
+
+            if (serviceAreaPostcodes.includes(postcode)) {
+                resultDiv.innerHTML = "Good news! We service your area.";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.innerHTML = "Sorry, your postcode is outside our service area.";
+                resultDiv.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
